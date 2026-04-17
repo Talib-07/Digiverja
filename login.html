@@ -1,31 +1,9 @@
-<?php
-include 'db.php';
-
-if(isset($_POST['register'])){
-  $name = $_POST['name'];
-  $email = $_POST['email'];
-  $password = $_POST['password'];
-
-  // check duplicate email
-  $check = mysqli_query($conn,"SELECT * FROM users WHERE email='$email'");
-
-  if(mysqli_num_rows($check) > 0){
-    $error = "Email already registered!";
-  } else {
-
-    mysqli_query($conn,"INSERT INTO users(name,email,password)
-    VALUES('$name','$email','$password')");
-
-    header("Location: login.php");
-  }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Register - Digivera</title>
+<title>Login - Digivera</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -64,18 +42,17 @@ body{
   50%{transform:translateY(-30px);}
 }
 
-.register-box{
-  width:370px;
+.login-box{
+  width:360px;
   padding:40px;
   border-radius:20px;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.85);
   backdrop-filter: blur(15px);
   box-shadow:0 20px 60px rgba(0,0,0,0.15);
   text-align:center;
-  animation:fadeUp 0.8s ease;
 }
 
-.register-box h2{
+.login-box h2{
   margin-bottom:20px;
   font-size:28px;
   font-weight:700;
@@ -85,45 +62,21 @@ body{
 .input-box input{
   width:100%;
   padding:12px;
-  margin:10px 0;
+  margin:12px 0;
   border-radius:10px;
   border:1px solid #e2e8f0;
   background:#f8fafc;
-  color:#0f172a;
   outline:none;
 }
 
-.input-box input:focus{
-  border-color:#0ea5e9;
-  box-shadow:0 0 0 3px rgba(14,165,233,0.2);
-}
-
-.register-btn{
+.login-btn{
   width:100%;
   padding:12px;
-  margin-top:10px;
   border:none;
   border-radius:30px;
   background:linear-gradient(90deg,#0ea5e9,#2563eb);
   color:white;
-  font-weight:600;
   cursor:pointer;
-}
-
-.register-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 10px 25px rgba(37,99,235,0.4);
-}
-
-.extra{
-  margin-top:15px;
-  font-size:14px;
-  color:#64748b;
-}
-
-.extra a{
-  color:#0ea5e9;
-  text-decoration:none;
 }
 
 .error{
@@ -131,15 +84,14 @@ body{
   margin-bottom:10px;
 }
 
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(30px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+.extra{
+  margin-top:15px;
+  font-size:14px;
+}
+
+.extra a{
+  color:#0ea5e9;
+  text-decoration:none;
 }
 </style>
 </head>
@@ -149,33 +101,53 @@ body{
 <div class="blur one"></div>
 <div class="blur two"></div>
 
-<div class="register-box">
-  <h2>Create Account 🚀</h2>
+<div class="login-box">
+  <h2>Welcome Back 👋</h2>
 
-  <?php if(isset($error)) echo "<div class='error'>$error</div>"; ?>
+  <div class="error" id="error"></div>
 
-  <form method="POST">
-
+  <form onsubmit="return loginUser()">
     <div class="input-box">
-      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Enter Email" required>
     </div>
 
     <div class="input-box">
-      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="password" id="password" placeholder="Enter Password" required>
     </div>
 
-    <div class="input-box">
-      <input type="password" name="password" placeholder="Password" required>
-    </div>
-
-    <button type="submit" name="register" class="register-btn">Register</button>
-
+    <button class="login-btn">Login</button>
   </form>
 
   <div class="extra">
-    Already have an account? <a href="login.php">Login</a>
+    Don't have an account? <a href="register.html">Register</a>
   </div>
 </div>
+
+<script>
+function loginUser(){
+
+  let email = document.getElementById("email").value;
+  let pass = document.getElementById("password").value;
+
+  // DEMO USER (replace with your own)
+  let demoEmail = "admin@gmail.com";
+  let demoPass = "1234";
+
+  if(email === demoEmail && pass === demoPass){
+
+    // SAVE USER
+    localStorage.setItem("user", email);
+
+    // REDIRECT
+    window.location.href = "./dashboard.html";
+
+  }else{
+    document.getElementById("error").innerText = "Invalid Email or Password!";
+  }
+
+  return false;
+}
+</script>
 
 </body>
 </html>
