@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digivera</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  font-family:'Inter', sans-serif;
+}
+
+/* HEADINGS */
+h1,h2,h3{
+  font-family:'Poppins', sans-serif;
+  font-weight:700;
+  letter-spacing:-0.5px;
+}
+
+/* HERO TITLE */
+.hero h1{
+  font-size:48px;
+  font-weight:700;
+  color:#0f172a;
+}
+
+/* PARAGRAPH */
+.hero p{
+  font-size:18px;
+  color:#64748b;
+}
+
+body{
+  background:linear-gradient(135deg,#f8fbff,#e0f2fe,#bae6fd);
+  color:#0f172a;
+}
+
+/* NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 8%;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(12px);
+  box-shadow:0 4px 20px rgba(0,0,0,0.05);
+}
+
+.logo{
+  font-size:26px;
+  font-weight:700;
+  color:#0284c7;
+}
+
+.nav-links{
+  display:flex;
+  gap:25px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#475569;
+  font-weight:500;
+  position:relative;
+}
+
+/* NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 8%;
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:1000;
+
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(15px);
+  transition:0.3s;
+}
+
+/* SCROLL EFFECT */
+.navbar.scrolled{
+  background:white;
+  box-shadow:0 5px 25px rgba(0,0,0,0.08);
+}
+
+/* LOGO */
+.logo{
+  font-size:26px;
+  font-weight:700;
+  color:#0284c7;
+  transition:0.3s;
+}
+
+/* LOGO ANIMATION */
+.logo:hover{
+  transform:scale(1.1);
+  color:#0ea5e9;
+}
+
+/* NAV LINKS */
+.nav-links{
+  display:flex;
+  gap:25px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#475569;
+  font-weight:500;
+  position:relative;
+}
+
+/* UNDERLINE */
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  bottom:-5px;
+  left:0;
+  width:0%;
+  height:2px;
+  background:#0284c7;
+  transition:0.3s;
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+/* LOGIN BTN */
+.login-btn{
+  padding:8px 20px;
+  border-radius:25px;
+  background:linear-gradient(135deg,#0ea5e9,#2563eb);
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* MENU ICON */
+.menu-toggle{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:white;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+    padding:20px;
+    display:none;
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  .login-btn{
+    display:none;
+  }
+}
+/* underline animation */
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:#0284c7;
+  transition:0.3s;
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+/* login button */
+.login-btn{
+  padding:8px 20px;
+  border-radius:25px;
+  background:linear-gradient(135deg,#0ea5e9,#2563eb);
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+
+  box-shadow:0 6px 20px rgba(37,99,235,0.3);
+  transition:0.3s;
+}
+
+.login-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(37,99,235,0.5);
+}
+.navbar{
+  backdrop-filter:blur(20px);
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:50px;
+}
+
+.hero p{
+  margin:20px 0;
+  color:#64748b;
+}
+
+.hero button{
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  background:#0ea5e9;
+  color:white;
+}
+
+/* SECTION */
+section{
+  padding:120px 10%;
+}
+
+/* ABOUT */
+.about{
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+}
+
+.about-box{
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* SERVICES */
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  transition:0.3s;
+  box-shadow:0 8px 25px rgba(0,0,0,0.05);
+}
+
+.card:hover{
+  transform:translateY(-10px);
+}
+
+/* BENEFITS */
+.benefit-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.benefit-grid div{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* CONTACT */
+.contact{
+  text-align:center;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#000;
+  color:white;
+}
+
+/* ANIMATION */
+.reveal{
+  opacity:0;
+  transform:translateY(50px);
+  transition:1s;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.about-section{
+  padding:120px 10%;
+}
+
+.about-container{
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:60px;
+  align-items:center;
+}
+
+/* LEFT */
+.about-left h2{
+  font-size:38px;
+  margin-bottom:20px;
+}
+
+.about-left p{
+  margin-bottom:15px;
+  color:#475569;
+  line-height:1.7;
+}
+
+/* CARD */
+.about-card{
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(15px);
+  padding:30px;
+  border-radius:20px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.5);
+
+  transition:0.3s;
+}
+
+.about-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+.about-card h3{
+  margin-bottom:15px;
+}
+
+.about-card ul{
+  list-style:none;
+}
+
+.about-card li{
+  margin:10px 0;
+  color:#334155;
+  font-weight:500;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .about-container{
+    grid-template-columns:1fr;
+  }
+}
+
+.user-menu{
+  position:relative;
+  cursor:pointer;
+}
+
+/* DROPDOWN */
+.dropdown{
+  position:absolute;
+  top:45px;
+  right:0;
+  width:180px;
+
+  background:white;
+  border-radius:10px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+  z-index:1000;
+}
+
+/* SHOW CLASS */
+.dropdown.show{
+  display:flex;
+}
+
+.dropdown a{
+  padding:12px;
+  text-decoration:none;
+  color:#334155;
+}
+
+.dropdown a:hover{
+  background:#f1f5f9;
+}
+.user-menu{
+  position:relative;
+}
+
+/* BUTTON */
+.user-btn{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  cursor:pointer;
+  padding:6px 12px;
+  border-radius:20px;
+  transition:0.3s;
+}
+
+.user-btn:hover{
+  background:#f1f5f9;
+}
+
+/* ARROW */
+.arrow{
+  font-size:12px;
+  transition:0.3s;
+}
+
+/* ROTATE */
+.user-menu.active .arrow{
+  transform:rotate(180deg);
+}
+
+/* DROPDOWN */
+/* NAVBAR */
+.navbar{
+  position:fixed;
+  width:100%;
+  top:0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 50px;
+
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(10px);
+
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
+  z-index:1000;
+}
+/* USER MENU */
+.user-menu{
+  position:relative;
+}
+
+/* BUTTON */
+.user-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 16px;
+
+  background:linear-gradient(135deg,#0ea5e9,#2563eb);
+  color:white;
+
+  border-radius:30px;
+  box-shadow:0 8px 25px rgba(37,99,235,0.3);
+
+  transition:0.3s;
+}
+
+.user-btn:hover{
+  transform:translateY(-2px) scale(1.03);
+}
+
+/* ARROW */
+.arrow{
+  font-size:12px;
+  transition:0.3s;
+}
+
+.user-menu.active .arrow{
+  transform:rotate(180deg);
+}
+
+/* DROPDOWN */
+/* USER MENU */
+.user-menu{
+  position:relative;
+  display:inline-block;
+}
+
+/* BUTTON */
+.user-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 16px;
+
+  background:linear-gradient(135deg,#0ea5e9,#2563eb);
+  color:white;
+
+  border-radius:30px;
+  box-shadow:0 8px 25px rgba(37,99,235,0.3);
+
+  transition:0.3s;
+}
+
+.user-btn:hover{
+  transform:translateY(-2px) scale(1.03);
+}
+
+/* ARROW */
+.arrow{
+  font-size:12px;
+  transition:0.3s;
+}
+
+/* DROPDOWN */
+.dropdown{
+  position:absolute;
+  top:55px;
+  right:0;
+
+  background:white;
+  border-radius:15px;
+  width:180px;
+
+  box-shadow:0 20px 50px rgba(0,0,0,0.2);
+
+  opacity:0;
+  transform:translateY(10px);
+  transition:0.3s;
+}
+
+.user-menu:hover .dropdown{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* LINKS */
+.dropdown a{
+  padding:12px;
+  text-decoration:none;
+  color:#334155;
+  transition:0.3s;
+}
+
+.dropdown a:hover{
+  background:#f1f5f9;
+}
+
+/* HOVER EFFECT (MAIN FIX) */
+.user-menu:hover .dropdown{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ARROW ROTATE */
+.user-menu:hover .arrow{
+  transform:rotate(180deg);
+}
+
+/* USER MENU */
+.user-menu{
+  position:relative;
+  cursor:pointer;
+}
+
+/* BUTTON */
+.user-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 14px;
+  background:white;
+  border-radius:30px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.user-btn:hover{
+  transform:translateY(-2px);
+}
+
+/* AVATAR */
+.avatar{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:#0ea5e9;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:600;
+}
+
+/* NAME */
+.user-btn span{
+  font-weight:500;
+  color:#0f172a;
+}
+
+/* ARROW */
+.arrow{
+  font-size:12px;
+  color:#64748b;
+}
+
+/* DROPDOWN */
+.dropdown{
+  position:absolute;
+  top:50px;
+  right:0;
+  width:180px;
+  background:white;
+  border-radius:15px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:0.3s;
+}
+
+/* SHOW ON HOVER */
+.user-menu:hover .dropdown{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+/* LINKS */
+.dropdown a{
+  display:block;
+  padding:12px;
+  text-decoration:none;
+  color:#0f172a;
+  transition:0.2s;
+}
+
+.dropdown a:hover{
+  background:#f1f5f9;
+}
+
+/* LOGOUT RED */
+.logout{
+  color:#ef4444;
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="logo">Digivera</div>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+ <div class="user-menu">
+  <div class="user-btn">
+    <div class="avatar">U</div>
+    <span>Talib</span>
+    <span class="arrow">⌄</span>
+  </div>
+
+  <div class="dropdown">
+    <a href="dashboard.html">📊 Dashboard</a>
+    <a href="settings.html">⚙ Settings</a>
+    <a href="logout.html" class="logout">🚪 Logout</a>
+  </div>
+</div>
+
+</div>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1 id="typing"></h1>
+<p>
+A complete digital marketing solution helping brands grow with strategy, creativity and performance.
+</p>
+  <button onclick="scrollToServices()">Start Growth</button>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about-section reveal">
+
+  <div class="about-container">
+
+    <!-- LEFT TEXT -->
+    <div class="about-left">
+      <h2>About Digivera</h2>
+
+      <p>
+        Digivera was founded by <b>Rohan Kushwah</b> with a vision to make digital marketing simple, affordable and accessible for businesses of all sizes.
+      </p>
+
+      <p>
+        We provide end-to-end digital and performance marketing solutions under one roof, helping brands grow using modern tools, data-driven strategies and creative execution.
+      </p>
+
+      <p>
+        Our team collaborates with skilled professionals across India to deliver impactful marketing campaigns that drive real business growth.
+      </p>
+    </div>
+
+    <!-- RIGHT CARD -->
+    <div class="about-card">
+      <h3>Why Choose Us?</h3>
+
+      <ul>
+        <li>🚀 A-to-Z Digital Marketing Solutions</li>
+        <li>📊 Performance Driven Strategy</li>
+        <li>💰 Affordable & Scalable Services</li>
+        <li>⚙ Modern Tools & Automation</li>
+      </ul>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services reveal">
+  <h2>Our Services</h2>
+
+  <div class="service-grid">
+
+    <div class="card">🚀 SEO Optimization</div>
+    <div class="card">📱 Social Media Marketing (SMM)</div>
+    <div class="card">📧 Email Marketing</div>
+    <div class="card">📝 Content Marketing</div>
+    <div class="card">💰 Pay-Per-Click Advertising (PPC)</div>
+    <div class="card">🤝 Influencer Marketing</div>
+    <div class="card">🎯 Lead Generation Campaigns</div>
+    <div class="card">⚙ CRM Integration & Automation</div>
+    <div class="card">💬 WhatsApp Automation</div>
+    <div class="card">📍 Google My Business Optimization</div>
+    <div class="card">🌐 Digital PR & Reputation Management</div>
+    <div class="card">🛒 E-commerce Growth Solutions</div>
+
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits reveal">
+  <h2>Advantages of Digital Marketing</h2>
+
+  <div class="benefit-grid">
+    <div>🌍 Expanded Audience Reach</div>
+    <div>💰 Cost-Effective Marketing</div>
+    <div>🎯 Targeted Audience Segmentation</div>
+    <div>📊 Measurable Performance & Analytics</div>
+    <div>💬 Interactive Customer Engagement</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact reveal">
+  <h2>Contact Us</h2>
+
+  <p>📞 8808112138</p>
+  <p>📧 digiveramarketing@gmail.com</p>
+  <p>📍 Delhi | Mumbai | Bangalore | Lucknow</p>
+
+  <p style="margin-top:10px;">
+    Remote digital services available across India
+  </p>
+</section>
+
+<footer>
+  <p>© 2026 Digivera</p>
+</footer>
+
+<script>
+
+/* TYPING EFFECT */
+let text = "Grow Your Business Digitally 🚀";
+let i = 0;
+
+function typing(){
+  if(i < text.length){
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typing,50);
+  }
+}
+typing();
+
+/* SCROLL */
+function scrollToServices(){
+  document.getElementById("services").scrollIntoView({behavior:"smooth"});
+}
+
+/* ANIMATION */
+window.addEventListener("scroll",()=>{
+  document.querySelectorAll(".reveal").forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight - 100){
+      el.classList.add("active");
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>
