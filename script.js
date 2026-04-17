@@ -77,7 +77,7 @@ function scrollToContact(){
 // HOME REDIRECT
 // ======================
 function goHome(){
-  window.location.href = "index.html";
+  
 }
 
 

@@ -115,7 +115,7 @@ body{
       <input type="password" id="password" placeholder="Enter Password" required>
     </div>
 
-    <button class="login-btn">Login</button>
+    <button type="submit" class="login-btn">Login</button>
   </form>
 
   <div class="extra">
@@ -123,23 +123,26 @@ body{
   </div>
 </div>
 
+
+
 <script>
 function loginUser(){
 
   let email = document.getElementById("email").value;
   let pass = document.getElementById("password").value;
 
-  // DEMO USER (replace with your own)
-  let demoEmail = "admin@gmail.com";
-  let demoPass = "1234";
+  let users = JSON.parse(localStorage.getItem("users")) || [];
 
-  if(email === demoEmail && pass === demoPass){
+  // FIND USER
+  let found = users.find(user => user.email === email && user.password === pass);
 
-    // SAVE USER
-    localStorage.setItem("user", email);
+  if(found){
 
-    // REDIRECT
-    window.location.href = "./dashboard.html";
+    localStorage.setItem("user", found.name);
+
+    alert("Login Successful");
+
+    window.location.href = "index.html";
 
   }else{
     document.getElementById("error").innerText = "Invalid Email or Password!";

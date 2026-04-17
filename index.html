@@ -730,7 +730,7 @@ footer{
   <div class="dropdown" id="dropdownMenu">
     <a href="dashboard.html">📊 Dashboard</a>
     <a href="settings.html">⚙ Settings</a>
-    <a href="logout.html" class="logout">🚪 Logout</a>
+    <a href="#" class="logout" onclick="logout()">🚪 Logout</a>
   </div>
 
 </div>
@@ -882,6 +882,16 @@ document.addEventListener("click", function(){
   dropdown.classList.remove("show");
 });
 
+</script>
+
+<script>
+function logout(){
+  // USER REMOVE
+  localStorage.removeItem("user");
+
+  // REDIRECT
+  window.location.href = "login.html";
+}
 </script>
 
 </body>
