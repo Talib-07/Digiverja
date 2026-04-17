@@ -674,6 +674,36 @@ footer{
 .logout{
   color:#ef4444;
 }
+
+.user-menu{
+  position:relative;
+}
+
+.dropdown{
+  position:absolute;
+  top:60px;
+  right:0;
+  width:180px;
+
+  background:white;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+
+  display:none;
+  flex-direction:column;
+}
+
+.dropdown.show{
+  display:flex;
+}
+
+/* smooth */
+.user-btn{
+  cursor:pointer;
+}
+.user-menu.active .arrow{
+  transform:rotate(180deg);
+}
 </style>
 </head>
 
@@ -689,18 +719,20 @@ footer{
     <a href="#contact">Contact</a>
   </nav>
 
- <div class="user-menu">
-  <div class="user-btn">
+ <div class="user-menu" id="userMenu">
+
+  <div class="user-btn" id="userBtn">
     <div class="avatar">U</div>
     <span>Talib</span>
     <span class="arrow">⌄</span>
   </div>
 
-  <div class="dropdown">
+  <div class="dropdown" id="dropdownMenu">
     <a href="dashboard.html">📊 Dashboard</a>
     <a href="settings.html">⚙ Settings</a>
     <a href="logout.html" class="logout">🚪 Logout</a>
   </div>
+
 </div>
 
 </div>
@@ -833,6 +865,21 @@ window.addEventListener("scroll",()=>{
       el.classList.add("active");
     }
   });
+});
+
+// GET ELEMENTS
+const btn = document.getElementById("userBtn");
+const dropdown = document.getElementById("dropdownMenu");
+
+// CLICK → OPEN
+btn.addEventListener("click", function(e){
+  e.stopPropagation();
+  dropdown.classList.toggle("show");
+});
+
+// OUTSIDE CLICK → CLOSE
+document.addEventListener("click", function(){
+  dropdown.classList.remove("show");
 });
 
 </script>
