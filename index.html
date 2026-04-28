@@ -1163,7 +1163,7 @@ footer{
 
 /* IMAGE */
 .services-img{
-  flex:1;
+  flex:-1;
   text-align:right;
 }
 
@@ -1616,15 +1616,29 @@ h2{
     width:100%;
   }
 }
-.services-img img{
-  width:100%;
-  max-width:420px;
+.services-img {
+  overflow: hidden;
+  border-radius: 20px;
+}
 
-  height:220px; /* 👈 height control */
-  object-fit:cover; /* 👈 crop karega nicely */
+.services-img img {
+  width: 100%;
+  height: 370px;
+  object-fit: cover;
 
-  border-radius:20px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.1);
+  display: block;
+
+  transition: transform 0.4s ease;
+}
+
+/* Hover effect (premium feel) */
+.services-img:hover img {
+  transform: scale(1.05);
+}
+
+/* Optional: add shadow on container instead of image */
+.services-img {
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
 }
 /* CONTACT CLICK FIX */
 .contact-info a{
@@ -1861,6 +1875,30 @@ h2{
   70%{transform:scale(1.5);opacity:0;}
   100%{transform:scale(1.5);opacity:0;}
 }
+/* background shapes */
+.shape {
+  position: absolute;
+  z-index: -1; /* 👈 sabse important */
+  opacity: 0.2;
+}
+
+/* hero section */
+.hero {
+  position: relative;
+  z-index: 1;
+}
+.services-title {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 700;
+  font-family: 'Inter', 'Poppins', sans-serif;
+  letter-spacing: -0.5px;
+  margin-bottom: 50px;
+
+  background: linear-gradient(90deg, #ff7a18, #ff3d6c);
+  -webkit-background-clip: text;
+  color: transparent;
+}
 </style>
 </head>
 
@@ -1987,8 +2025,8 @@ h2{
 
       <!-- IMAGE -->
       <div class="services-img">
-        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d" alt="Digital Marketing">
-      </div>
+  <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7" alt="Digital Marketing">
+</div>
 
     </div>
 
